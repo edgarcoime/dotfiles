@@ -1,0 +1,22 @@
+[user]
+	name = Edgar Coime
+	email = e.coimeii@hotmail.com
+
+# Other possible Git configurations
+#   - Set the default editor (nano, VS Code, etc.)
+#   - Customize colour output
+#   - Create aliases (shortcuts for Git subcommands)
+#   - Add endpoint shortcuts for commonly used URLS
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/edgarcoime/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/edgarcoime/.stCommitMsg
