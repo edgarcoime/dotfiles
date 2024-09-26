@@ -148,7 +148,7 @@ NVIM_CONFIG_FOLDER="nvim-configs"
 
 alias nv="nvim"
 # alias nvk="NVIM_APPNAME=${NVIM_CONFIG_FOLDER}/kickstart nvim"
-alias nvk='NVIM_APPNAME="nvim-kickstart" nvim'
+# alias nvk='NVIM_APPNAME="nvim-kickstart" nvim'
 
 function nvs() {
   items=("default" "kickstart")
