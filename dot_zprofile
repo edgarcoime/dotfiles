@@ -1,0 +1,9 @@
+# ZSH profile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
+# pyenv config
+[ -f "/Users/edgarcoime/.ghcup/env" ] && source "/Users/edgarcoime/.ghcup/env" # ghcup-env
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
