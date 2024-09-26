@@ -1,0 +1,42 @@
+live_config_reload: true
+
+# https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+env:
+  TERM: xterm-256color
+
+import:
+  # - ~/.config/alacritty/themes/themes/base16_default_dark.yaml
+  - ~/.config/alacritty/themes/themes/iterm.yaml
+
+window:
+  opacity: 0.95
+  padding:
+    x: 15
+    y: 15
+  dynamic_padding: false
+  decorations: buttonless
+
+font:
+  normal:
+    # family: "JetBrainsMono NF"
+    family: "JetBrainsMono NFM"
+    style: Regular
+  size: 18.0
+
+print_events: true
+
+key_bindings:
+  # https://www.youtube.com/watch?v=lHBD6pdJ-Ng
+  - { key: H, mods: Control|Shift, chars: "\x1b[72;6u" }
+  - { key: J, mods: Control|Shift, chars: "\x1b[74;6u" }
+  - { key: K, mods: Control|Shift, chars: "\x1b[75;6u" }
+  - { key: L, mods: Control|Shift, chars: "\x1b[76;6u" }
+
+  - { key: I, mods: Control, chars: "\x1b[105;5u" }
+
+  - { key: Period, mods: Control, chars: "\x1b[46;5u" }
+  - { key: Comma, mods: Control, chars: "\x1b[44;5u" }
+  - { key: Semicolon, mods: Control, chars: "\x1b[59;5u" }
+  - { key: Slash, mods: Control, chars: "\x1b[47;5u" }
+
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
