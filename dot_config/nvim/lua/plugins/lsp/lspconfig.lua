@@ -7,10 +7,12 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"mrcjkb/rustaceanvim",
 	},
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
+		local util = require("lspconfig/util")
 
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -38,8 +40,10 @@ return {
 				-- Golang
 				"gopls",
 
-				-- json
-				"jsonls",
+				-- rust Use rustacean to enable further integrations
+
+				-- clang
+				"clangd",
 
 				-- web
 				"ts_ls",
@@ -48,6 +52,11 @@ return {
 				"tailwindcss",
 				"svelte",
 				"emmet_ls",
+
+				-- utils (json/toml/bash/etc...)
+				-- "jsonls",
+				"harper_ls",
+				"bashls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure installed
@@ -76,14 +85,6 @@ return {
 		-- Will be attached to each LSP
 		-- Additional plugins that need to latch onto lsp can be put here
 		local on_attach = function(client, bufnr)
-			-- if client.server_capabilities.documentSymbolProvider then
-			--   nvim_navic.attach(client, bufnr)
-			-- end
-
-			-- Keymap shortcut
-			-- local keymap = vim.keymap -- for conciseness
-			-- local opts = { noremap = true, silent = true }
-			-- opts.buffer = bufnr
 			local tb = require("telescope.builtin")
 			local map = function(keys, func, desc)
 				vim.keymap.set(
@@ -116,7 +117,6 @@ return {
 			map("K", vim.lsp.buf.hover, "Hover Documentation")
 
 			-- DIAGNOSTICS SETTINGS
-
 			-- Jump to the type of the word under your cursor.
 			--  Useful when you're not sure what type a variable is and you want to see
 			--  the definition of its *type*, not where it was *defined*.
@@ -153,32 +153,20 @@ return {
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Sample array of strings
-		local strings = { "apple", "banana", "cherry" }
-
-		-- Function to operate on each string
-		local function processString(str)
-			return string.upper(str) -- Convert string to uppercase
-		end
-
-		-- Loop over the array and apply the function
-		for i, str in ipairs(strings) do
-			local result = processString(str)
-			print(result) -- Print the result
-		end
-
 		-- LSPs that don't need extra configs
 		-- Found in mason lua
 		local defaultLSPs = {
 			"pyright",
 			"gopls",
-			"jsonls",
+			-- "jsonls",
 			"ts_ls",
 			"html",
 			"cssls",
 			"tailwindcss",
 			"svelte",
 			"emmet_ls",
+			"clangd",
+			"bashls",
 		}
 
 		-- default options application
@@ -193,6 +181,15 @@ return {
 		for _, srvr in ipairs(defaultLSPs) do
 			defaultSettings(srvr)
 		end
+
+		-- -- attach keymaps
+		-- vim.g.rustaceanvim.server.on_attach = on_attach
+
+		lspconfig.harper_ls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "json", "toml", "markdown", "gitcommit" },
+		})
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({

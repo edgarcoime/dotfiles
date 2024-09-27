@@ -28,6 +28,9 @@ return {
 				"gofumpt",
 				"goimports",
 
+				-- c tooling
+				"clang-format",
+
 				-- Web config
 				"prettierd", -- prettier formatter
 				"eslint_d", -- js linter,
@@ -62,6 +65,9 @@ return {
 				-- golang tooling
 				formatting.gofumpt,
 				formatting.goimports,
+
+				-- c tooling
+				formatting.clang_format,
 
 				-- Web
 				formatting.prettierd,
