@@ -124,6 +124,7 @@ alias chz="chezmoi"
 alias chza="chezmoi apply"
 alias chzd="chezmoi diff"
 alias chze="chezmoi edit"
+alias chzr="chezmoi re-add"
 
 # EZA
 alias l="eza -F --icons=always"
