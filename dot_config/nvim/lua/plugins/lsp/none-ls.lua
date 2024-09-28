@@ -33,7 +33,6 @@ return {
 
 				-- Web config
 				"prettierd", -- prettier formatter
-				"eslint_d", -- js linter,
 			},
 		})
 
@@ -72,7 +71,7 @@ return {
 				-- Web
 				formatting.prettierd,
 				completion.spell, -- lua tooling?
-				require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+				-- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
 			},
 			-- configure format on save
 			on_attach = function(current_client, bufnr)
