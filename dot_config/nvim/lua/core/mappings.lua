@@ -21,7 +21,17 @@ keymap.set("n", "|", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<C-s>", "<cmd>w!<cr>", { desc = "Force Write" })
 keymap.set("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Force Quit" })
 
-keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Close current buffer" }) --  move current buffer to new tab
+-- TODO: Not working ?
+-- keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Close current buffer" }) --  move current buffer to new tab
+
+-- editor configs
+-- Toggle line wrap with <leader>w
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>el",
+	"<cmd>set wrap!<CR>",
+	{ desc = "Toggle line wrap", noremap = true, silent = true }
+)
 
 -- setup tab functionality
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
