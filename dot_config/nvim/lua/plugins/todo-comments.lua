@@ -9,9 +9,9 @@ return {
 		end
 
 		-- Open todos in trouble ui
-		map("<leader>d;", "<cmd>Trouble todo<cr>", "Trouble Todos [;]")
+		map("<leader>l;", "<cmd>Trouble todo<cr>", "Trouble Todos [;]")
 
 		-- Open todos in telescope mode
-		map("<leader>d/", "<cmd>TodoTelescope<cr>", "Trouble Todos [/]")
+		map("<leader>l/", "<cmd>TodoTelescope<cr>", "Trouble Todos [/]")
 	end,
 }
