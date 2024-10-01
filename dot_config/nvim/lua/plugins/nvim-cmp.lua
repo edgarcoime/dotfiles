@@ -19,12 +19,26 @@ return {
 
 		-- copilot integration
 		"zbirenbaum/copilot-cmp",
+
+		-- TODO: Maybe needed for nvim-dap-ui?
+		-- https://github.com/rcarriga/nvim-dap-ui#installation
+		{
+			"folke/lazydev.nvim",
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					"nvim-dap-ui",
+					{ path = "luvit-meta/library", words = { "vim%.uv" } },
+				},
+			},
+		},
+		{ "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
 	},
 	config = function()
 		local cmp = require("cmp")
-
 		local luasnip = require("luasnip")
-
 		local lspkind = require("lspkind")
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
@@ -55,7 +69,10 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				-- Traditional nvim_lsp integration but will use another package first
-				{ name = "nvim_lsp" },
+				{
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+				},
 				{ name = "luasnip" },
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths

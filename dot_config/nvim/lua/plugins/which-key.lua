@@ -1,5 +1,8 @@
 return { -- Useful plugin to show you pending keybinds.
 	"folke/which-key.nvim",
+	dependencies = {
+		{ "echasnovski/mini.nvim", version = false },
+	},
 	event = "VimEnter", -- Sets the loading event to 'VimEnter'
 	config = function() -- This is the function that runs, AFTER loading
 		local wk = require("which-key")
@@ -41,11 +44,11 @@ return { -- Useful plugin to show you pending keybinds.
 
 		wk.add({
 			{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-			{ "<leader>d", group = "[D]iagnostics" },
+			{ "<leader>d", group = "[D]ebugger" },
+			{ "<leader>l", group = "[L]SP" },
 			{ "<leader>s", group = "[S]earch" },
 			{ "<leader>t", group = "[T]ab" },
 			{ "<leader>g", group = "[G]it" },
-			{ "<leader>b", group = "[B]uffer" },
 			{ "<leader>w", group = "[W]orkspace" },
 			{ "<leader>e", group = "[E]ditor" },
 		})
