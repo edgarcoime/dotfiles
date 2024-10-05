@@ -210,3 +210,22 @@ alt-shift-l = ['join-with right', 'mode main']
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = "move-node-to-workspace 1"
+
+# Config to exempt windows
+# https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
+# https://simplemdm.com/blog/how-to-find-the-bundle-id-for-an-application/
+[[on-window-detected]]
+if.app-id = 'com.macpaw.CleanMyMac4'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = "layout floating"
