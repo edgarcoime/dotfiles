@@ -5,11 +5,13 @@ return {
   config = function()
     local harpoon = require("harpoon")
 
-    harpoon:setup({})
-
     local map = function(keys, func, desc)
       vim.keymap.set("n", keys, func, { desc = "Harpoon: " .. desc })
     end
+
+    -- REQUIRED
+    harpoon:setup()
+    -- REQUIRED
 
     map("<leader>a", function()
       harpoon:list():add()
