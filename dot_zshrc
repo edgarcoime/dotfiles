@@ -144,6 +144,7 @@ alias "cmd:npkill"="npx npkill"
 
 alias "py3"="python3"
 alias ff="fastfetch"
+alias gitwc="git ls-files | xargs wc -l"
 # alias "zipme"="zip -r cards.zip . -x \".*\" -x \"__MACOSX\""
 alias nvl='NVIM_APPNAME="nvim_legacy" nvim'
 ############################### ALIASES ###############################

@@ -209,7 +209,7 @@ alt-shift-l = ['join-with right', 'mode main']
 # Window detection automatic move
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
-run = "move-node-to-workspace 1"
+run = "move-node-to-workspace V"
 
 # Config to exempt windows
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
