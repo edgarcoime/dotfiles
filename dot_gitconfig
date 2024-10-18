@@ -10,13 +10,30 @@
 [init]
 	defaultBranch = main
 [core]
-	excludesfile = /Users/edgarcoime/.gitignore_global
-	autocrlf = input
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/edgarcoime/.stCommitMsg
+	editor = nvim
+[alias]
+	bare = clone --bare
+
+	st = status -s
+	sta = status
+
+	conf = config --global --edit
+	cge = config --global --edit
+
+	ci = commit
+	co = checkout
+	aa = add -A
+
+	br = branch
+	bra = branch -a
+	pr = pull --rebase
+
+	# Resets
+	rh = reset HEAD # unstage all files
+	cdf = clean -df # remove untracked files
+	cod = checkout . # discard changes in working directory
+
+	# Worktrees
+	wta = worktree add
+	wtl = worktree list
+	wtr = worktree remove
