@@ -130,7 +130,7 @@ function sesh-sessions() {
     # session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
     # session=$(sesh list | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
     session=$(
-	    sesh list | fzf-tmux -p 100%,70% \
+	    sesh list | fzf-tmux -p 80%,70% \
         --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
         --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
         --bind 'tab:down,btab:up' \

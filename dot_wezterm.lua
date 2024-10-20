@@ -11,7 +11,7 @@ config.font = wezterm.font_with_fallback({
   {
     family = "Monaspace Neon",
     weight = "Medium",
-    harfbuzz_features = { "calt", "ss02", "ss03", "ss07", "ss08", "ss09" },
+    harfbuzz_features = { "calt", "ss02", "ss03", "ss05", "ss07", "ss08", "ss09" },
   },
   { family = "Symbols Nerd Font", weight = "Medium" },
   -- { family = "JetBrainsMono NFM", weight = "Medium" },
