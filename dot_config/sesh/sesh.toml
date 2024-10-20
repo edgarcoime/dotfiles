@@ -1,0 +1,7 @@
+[[session]]
+name = "Home"
+path = "~"
+
+[[session]]
+name = "Projects"
+path = "/Users/edgarcoime/Documents/programming/projects"

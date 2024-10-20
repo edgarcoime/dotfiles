@@ -106,6 +106,7 @@ alias lg="lazygit"
 alias ff="fastfetch"
 alias air="~/go/bin/air"
 alias "py3"="python3"
+alias s="sesh"
 # ====================== ALIAS ======================
 
 
@@ -119,6 +120,24 @@ zipme() {
     zip -r "archive.zip" . -x ".*" -x "__MACOSX" -x ".DS*"
   fi
 }
+
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+
+zle     -N             sesh-sessions
+bindkey -M emacs '\eq' sesh-sessions
+bindkey -M vicmd '\eq' sesh-sessions
+bindkey -M viins '\eq' sesh-sessions
+
 
 # NVM Config
 export NVM_DIR="$HOME/.nvm"
