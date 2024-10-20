@@ -12,7 +12,7 @@ config.window_decorations = "RESIZE"
 config.color_scheme = "tokyonight_night"
 -- config.color_scheme = "ayu"
 
--- config.window_background_opacity = 1
--- config.macos_window_background_blur = 20
+config.window_background_opacity = 0.95
+config.macos_window_background_blur = 30
 
 return config
