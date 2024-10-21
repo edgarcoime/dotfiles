@@ -18,6 +18,8 @@ config.font = wezterm.font_with_fallback({
 })
 
 config.font_size = 18
+-- Fixes small icons
+config.allow_square_glyphs_to_overflow_width = "Always"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
@@ -25,7 +27,7 @@ config.window_decorations = "RESIZE"
 config.color_scheme = "tokyonight_night"
 -- config.color_scheme = "ayu"
 
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 30
+config.window_background_opacity = 0.92
+config.macos_window_background_blur = 50
 
 return config
