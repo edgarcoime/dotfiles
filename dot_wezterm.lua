@@ -9,7 +9,8 @@ local config = wezterm.config_builder()
 -- https://monaspace.githubnext.com/
 config.font = wezterm.font_with_fallback({
   {
-    family = "Monaspace Neon",
+    -- family = "Monaspace Neon",
+    family = "Monaspace Argon",
     weight = "Medium",
     harfbuzz_features = { "calt", "ss02", "ss03", "ss05", "ss07", "ss08", "ss09" },
   },
