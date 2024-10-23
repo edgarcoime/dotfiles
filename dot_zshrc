@@ -102,18 +102,49 @@ alias emcn='emacs -nw'
 # toolchains
 alias nvl='NVIM_APPNAME="nvim_legacy" nvim'
 alias cat='bat --style=header,grid'
-alias lg="lazygit"
 alias ff="fastfetch"
 alias air="~/go/bin/air"
 alias "py3"="python3"
 alias s="sesh"
 alias sc="sesh connect"
+alias lg="lazygit"
+alias ldo="lazydocker"
 # ====================== ALIAS ======================
 
 
-# ====================== ADDITIONALS ======================
+# ====================== FUNCTIONS ======================
+# Shortcut to create parent folder if not there, create file, and navigate
+function touchp {
+  local filepath="$1"
+  local dirpath="$(dirname "$filepath")"
+
+  # Create parent directories if not there
+  if [ ! -d "$dirpath" ]; then
+      mkdir -p "$dirpath"
+  fi
+
+  # Create file
+  touch "$filepath"
+
+  # Navigate to directory
+  cd "$dirpath" || {
+    return 1
+  }
+  return 0
+}
+
+# Shortcut to navigate to folder in yazi
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 # Function to create a zip file excluding hidden files and __MACOSX
-zipme() {
+function zipme() {
   if [ -n "$1" ] 
   then
     zip -r "$1.zip" . -x ".*" -x "__MACOSX" -x ".DS*"
@@ -153,6 +184,7 @@ bindkey -M vicmd '\es' sesh-sessions
 bindkey -M viins '\es' sesh-sessions
 
 
+# ====================== ADDITIONALS ======================
 # NVM Config
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
