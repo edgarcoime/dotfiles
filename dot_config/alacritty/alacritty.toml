@@ -10,7 +10,7 @@ size = 18.0
 
 [font.normal]
 family = "JetBrainsMono NFM"
-# family = "FiraCode Nerd Font"
+# family = "Monaspace Neon"
 style = "Regular"
 
 [[keyboard.bindings]]
