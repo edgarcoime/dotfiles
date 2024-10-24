@@ -15,7 +15,7 @@ config.font = wezterm.font_with_fallback({
     harfbuzz_features = { "calt", "ss02", "ss03", "ss05", "ss07", "ss08", "ss09" },
   },
   { family = "Symbols Nerd Font", weight = "Medium" },
-  -- { family = "JetBrainsMono NFM", weight = "Medium" },
+  { family = "JetBrainsMono NFM", weight = "Medium" },
 })
 
 config.font_size = 18
