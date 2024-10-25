@@ -3,8 +3,9 @@
         {
             "complex_modifications": {
                 "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 75,
                     "basic.to_if_alone_timeout_milliseconds": 300,
-                    "basic.to_if_held_down_threshold_milliseconds": 100
+                    "basic.to_if_held_down_threshold_milliseconds": 125
                 },
                 "rules": [
                     {
@@ -1032,6 +1033,14 @@
                         "is_keyboard": true,
                         "product_id": 42569,
                         "vendor_id": 936
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 24926,
+                        "vendor_id": 7504
                     },
                     "ignore": true
                 }
