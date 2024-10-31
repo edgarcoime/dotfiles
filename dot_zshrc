@@ -231,3 +231,8 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 # fi
 # unset __conda_setup
 # # <<< conda initialize <<<
+
+
+# direnv setup
+# https://gist.github.com/kenmori/c46ee7f067cd8a856f9f71121b9621bf
+eval "$(direnv hook zsh)"
