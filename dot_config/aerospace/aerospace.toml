@@ -99,16 +99,21 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+# alt-h = 'focus left'
+# alt-j = 'focus down'
+# alt-k = 'focus up'
+# alt-l = 'focus right'
+
+alt-y = 'focus left'
+alt-h = 'focus down'
+alt-a = 'focus up'
+alt-e = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+alt-shift-y = 'move left'
+alt-shift-h = 'move down'
+alt-shift-a = 'move up'
+alt-shift-e = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
@@ -210,6 +215,19 @@ alt-shift-l = ['join-with right', 'mode main']
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = "move-node-to-workspace V"
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace V"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'settings'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'mpv'
+if.window-title-regex-substring = 'mpv'
+run = "layout floating"
 
 # Config to exempt windows
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
