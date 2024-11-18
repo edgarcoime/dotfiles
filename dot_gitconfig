@@ -37,3 +37,4 @@
 	wta = worktree add
 	wtl = worktree list
 	wtr = worktree remove
+	wtc = "!sh $HOME/bin/git-clone-bare-for-worktrees.sh"
